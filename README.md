@@ -33,6 +33,8 @@ JDBC URL: jdbc:h2:./data
 Rodar testes:
 
 1º - Navegue até o pacote “/goldenRaspberryAwards/src/test/java/com/restful/repositor”
+
 2º - O pacote acima contém a classe “MovieRepositoryTest”, a qual possui 4 testes de integração, a descrição de cada um está em comentário.
+
 3º - Ao clicar em Run para a classe “MovieRepositoryTest” os testes serão executados realizando a tarefa comentada no código.
 
