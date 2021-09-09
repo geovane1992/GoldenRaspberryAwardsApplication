@@ -15,12 +15,16 @@ public class Movie {
 
 	@Column(nullable = false)
 	private int year;
+	
 	@Column(nullable = false)
 	private String title;
+
 	@Column(nullable = false)
 	private String studio;
+
 	@Column(nullable = false)
 	private String producer;
+	
 	@Column(nullable = true)
 	private String winner;
 	

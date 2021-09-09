@@ -12,6 +12,7 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -20,13 +21,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.restful.entity.Movie;
 import com.restful.repository.MovieRepository;
 
+
 @RestController
 @RequestMapping("/ImportCsv")
+@Component
 public class ImportCsvController{
 	
 	@Autowired
 	private MovieRepository movieRepository;
 
+	
 	@PostMapping
 	@ResponseStatus(HttpStatus.OK)
 	@PostConstruct
@@ -43,16 +47,22 @@ public class ImportCsvController{
 			for (String row : rowFile) {
 				if(!row.contains(";;;;")) {
 					String[] splitValue = row.split(";",-1);
-					if (cont >= 1 ) {				
-						Movie movie = new Movie();
-						movie.setYear(Integer.parseInt(splitValue[0]));
-						movie.setTitle(splitValue[1]);
-						movie.setStudio(splitValue[2]);
-						movie.setProducer(splitValue[3]);
-						movie.setWinner(splitValue[4]);
-										
-						movieRepository.save(movie);
-						imported ++;
+					if (cont >= 1 ) {	
+						if( !splitValue[1].isBlank() &&
+							!splitValue[2].isBlank() &&
+							!splitValue[3].isBlank()) {
+							
+							Movie movie = new Movie();
+							movie.setYear(Integer.parseInt(splitValue[0]));
+							movie.setTitle(splitValue[1]);
+							movie.setStudio(splitValue[2]);
+							movie.setProducer(splitValue[3]);
+							movie.setWinner(splitValue[4]);
+											
+							movieRepository.save(movie);
+							imported ++;
+						}
+						
 					}
 				}
 

@@ -72,7 +72,7 @@ public class MovieRepositoryTest{
 		        .andExpect(MockMvcResultMatchers.status().isOk());
 		
 		Map<String, List<ProducerPrizesIntervalModel>> mapReturn = getProducerPrizesIntervalController.intervalPrizes();
-		Assertions.assertEquals(mapReturn.get("max").size(), 2);
+		Assertions.assertEquals(mapReturn.get("max").size(), 1);
     }
 	
 	//Testa se total de registros importados bate com total de registros do banco.
