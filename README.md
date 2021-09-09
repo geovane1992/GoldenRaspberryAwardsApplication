@@ -22,7 +22,7 @@ Requisitos não funcionais do sistema:
 Rodar projeto:
 
 1º - Realizar um clone do repositório 
-2º - Importar o projeto no eclipse, de preferência na versão 2021-06 (4.20.0)
+2º - Importar o projeto no eclipse, de preferência na versão 2021-06 (4.20.0) com java 13
 3º - Verificar se a versão do Spring Tools 4 está instalada
 4º - Executar projeto pelo Boot Dashboard
 5º - Ao iniciar a aplicação será realizada a carga dos dados com base na planilha que está em “src/main/java/file/movielist.csv”.
